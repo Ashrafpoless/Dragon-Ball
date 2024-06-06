@@ -9,12 +9,16 @@ const renderDisplaySection = () => {
     // loop through the data to fill the display section
     state.itemToDisplay.forEach((item)=>{
 
-        const dragonDiv = document.createElement('div')
-        dragonDiv.className = 'dragon'
+        const dragonDiv = document.createElement('div');
+        dragonDiv.className = 'dragon';
 
         const img = document.createElement('img');
         img.className = 'img';
-        img.src = item.image
+        img.src = item.image;
+
+
+        const infoContainer = document.createElement('div')
+        infoContainer.className= 'info';
 
         const name = document.createElement('h3');
         name.className= 'name';
@@ -43,7 +47,8 @@ const renderDisplaySection = () => {
         const affiliationValue = document.createElement('h4');
         affiliationValue.innerText = item.affiliation;
 
-        dragonDiv.append(img, name, raceGender, baseKi, baseValue, totalKi, totalValue, affiliation, affiliationValue )
+        infoContainer.append(name, raceGender, baseKi, baseValue, totalKi, totalValue, affiliation, affiliationValue)
+        dragonDiv.append(img, infoContainer )
         displaySection.append(dragonDiv )
     })
     
